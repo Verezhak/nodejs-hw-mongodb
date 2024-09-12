@@ -1,4 +1,4 @@
-// src/db/models/student.js 
+
 
 import { model, Schema } from 'mongoose';
 
@@ -16,7 +16,6 @@ const contactSchema = new Schema(
 
         email: {
             type: String,
-            required: true,
         },
         isFavourite: {
             type: Boolean,
