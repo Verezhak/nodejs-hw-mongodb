@@ -3,7 +3,9 @@ import cors from 'cors';
 import pino from 'pino-http';
 import { env } from './utils/env.js';
 import contactsRouter from './routers/contactsRouter.js';
-import { notFoundMiddleware, errorHandlerMiddleware } from './middlewares/index.js';
+import notFoundMiddleware from './middlewares/notFound.js';
+import errorHandlerMiddleware from './middlewares/errorHandler.js';
+
 
 const PORT = env('PORT', '3000');
 
