@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { contactTypeList, phoneNumberRegexp } from '../constants/contactsConstants.js';
+import { contactTypeList, phoneNumberRegexp } from '../constants/index.js';
 
 export const createContactSchema = Joi.object({
     name: Joi.string().min(3).max(20).required(),

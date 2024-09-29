@@ -2,10 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
 import { env } from './utils/env.js';
-import contactsRouter from './routers/contactsRouter.js';
+import router from './routers/index.js';
 import notFoundMiddleware from './middlewares/notFound.js';
 import errorHandlerMiddleware from './middlewares/errorHandler.js';
-
+import cookieParser from 'cookie-parser';
 
 const PORT = env('PORT', '3000');
 
@@ -21,11 +21,12 @@ export const setupServer = () => {
         }),
     );
     app.use(cors());
+    app.use(cookieParser());
 
 
 
 
-    app.use('/contacts', contactsRouter);
+    app.use(router);
 
     app.use(notFoundMiddleware);
 
