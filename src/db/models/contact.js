@@ -1,7 +1,7 @@
 
 
 import { model, Schema } from 'mongoose';
-import { contactTypeList, phoneNumberRegexp } from '../../constants/contactsConstants.js';
+import { contactTypeList, phoneNumberRegexp } from '../../constants/index.js';
 
 const contactSchema = new Schema(
     {
@@ -18,6 +18,7 @@ const contactSchema = new Schema(
 
         email: {
             type: String,
+            unique: true,
         },
         isFavorite: {
             type: Boolean,
@@ -30,7 +31,12 @@ const contactSchema = new Schema(
             required: true,
             default: 'personal',
         },
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'users',
+        },
     },
+
     {
         timestamps: true,
         versionKey: false,
