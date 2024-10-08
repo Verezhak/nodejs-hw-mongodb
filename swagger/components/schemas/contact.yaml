@@ -11,15 +11,15 @@ properties:
   _id:
     description: "Contact's id"
     type: string
-    example: 65e4decdd286b30065d54af9
+    example: '65e4decdd286b30065d54af9'
   name:
     description: "Contact's name"
     type: string
     example: 'John Doe'
   phoneNumber:
     description: "Contact's phone number"
-    type: number
-    example: 380986754367
+    type: string
+    example: '+380986754367'
   contactType:
     description: "Contact's type"
     type: string

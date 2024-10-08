@@ -24,7 +24,7 @@ requestBody:
           phoneNumber:
             description: "Contact's phone number"
             type: string
-            example: 380986268780
+            example: '+380986268780'
           contactType:
             description: "Contact's type"
             type: string
@@ -36,7 +36,8 @@ requestBody:
           isFavorite:
             description: "Contact's favorite status"
             type: boolean
-            example: false
+            example: true
+            default: false
           photo:
             description: "Contact's photo"
             type: string
