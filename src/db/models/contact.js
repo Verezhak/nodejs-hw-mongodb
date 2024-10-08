@@ -1,7 +1,7 @@
 
 
 import { model, Schema } from 'mongoose';
-import { contactTypeList } from '../../constants/index.js';
+import { contactTypeList, phoneNumberRegexp } from '../../constants/index.js';
 
 
 const contactSchema = new Schema(
@@ -13,6 +13,7 @@ const contactSchema = new Schema(
 
         phoneNumber: {
             type: String,
+            match: phoneNumberRegexp,
             required: true,
         },
 

@@ -24,13 +24,13 @@ requestBody:
             example: 'John Doe'
           phoneNumber:
             description: "Contact's phone number"
-            type: number
-            example: +380988227077
+            type: string
+            example: '+380988227077'
           email:
             description: "Contact's email"
             type: string
             example: 'verezhak@gmail.com'
-          isFavourite:
+          isFavorite:
             description: 'Is the contact favorite?'
             type: boolean
             example: true
