@@ -59,8 +59,8 @@
                   },
                   "phoneNumber": {
                     "description": "Contact's phone number",
-                    "type": "number",
-                    "example": 380988227077
+                    "type": "string",
+                    "example": 380986268780
                   },
                   "contactType": {
                     "description": "Contact's type",
@@ -79,7 +79,7 @@
                   "isFavorite": {
                     "description": "Contact's favorite status",
                     "type": "boolean",
-                    "example": true
+                    "example": false
                   },
                   "photo": {
                     "description": "Contact's photo",
