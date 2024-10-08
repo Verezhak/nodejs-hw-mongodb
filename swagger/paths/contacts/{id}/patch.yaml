@@ -30,7 +30,7 @@ requestBody:
             description: "Contact's email"
             type: string
             example: 'verezhak@gmail.com'
-          isFavourite:
+          isFavorite:
             description: 'Is the contact favorite?'
             type: boolean
             example: true
