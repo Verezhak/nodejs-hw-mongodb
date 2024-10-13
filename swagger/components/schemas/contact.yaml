@@ -9,30 +9,30 @@ required:
    - email
 properties:
   _id:
-    description: "Contact's id"
+    description: Contact's id
     type: string
-    example: '65e4decdd286b30065d54af9'
+    example: 65e4decdd286b30065d54af9
   name:
-    description: "Contact's name"
+    description: Contact's name
     type: string
-    example: 'John Doe'
+    example: John Doe
   phoneNumber:
-    description: "Contact's phone number"
+    description: Contact's phone number
     type: string
-    example: '+380986754367'
+    example: "+380986754367"
   contactType:
-    description: "Contact's type"
+    description: Contact's type
     type: string
     enum:
       - work
       - home
       - personal
   email:
-    description: "Contact's email"
+    description: Contact's email
     type: string
-    example: "verezhakoksana@gmail.com"
+    example: verezhak@gmail.com
   photo:
-    description: "Link to contact's photo"
+    description: Link to contact's photo
     type: string
     example: "https://res.cloudinary.com/dtuyjqogn/image/upload/v1727969385/b7n5myl9lkf633tkrd4o.jpg"
 
