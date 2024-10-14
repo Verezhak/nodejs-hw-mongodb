@@ -657,28 +657,6 @@
             "bearerAuth": []
           }
         ],
-        "parameters": [
-          {
-            "in": "cookie",
-            "name": "sessionId",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "65ca67e7ae7f10c88b598384"
-            },
-            "description": "The session ID stored in cookies"
-          },
-          {
-            "in": "cookie",
-            "name": "refreshToken",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "your_refresh_token"
-            },
-            "description": "The refresh token stored in cookies"
-          }
-        ],
         "responses": {
           "200": {
             "description": "Successfully refreshed a session",
@@ -715,7 +693,7 @@
             }
           },
           "401": {
-            "description": "session not found or token expired."
+            "description": "Unauthorized: session not found or token expired."
           },
           "500": {
             "description": "Server error."
