@@ -1,30 +1,13 @@
 tags:
   - Auth
-summary: User refresh
-operationId: refreshUser
-description: Authenticate a user and return a JWT token.
+summary: Refresh JWT token
+operationId: refreshToken
+description: Refresh a user's session and return a new JWT token.
 security:
   - bearerAuth: []
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        required:
-          - email
-          - password
-        properties:
-          email:
-            type: string
-            format: email
-            example: verezhak@gmail.com
-          password:
-            type: string
-            example: your_password
 responses:
   '200':
-    description: Successfully logged in
+    description: Successfully refreshed a session
     content:
       application/json:
         schema:
@@ -39,15 +22,14 @@ responses:
               example: 200
             message:
               type: string
-              example: Successfully refreshed a session!
+              example: Successfully refreshed the session!
             data:
               type: object
               properties:
-                token:
+                accessToken:
                   type: string
                   example: V2rYVl6VT+x3v84txE/f25d7gr4v5k1Ro7tSOMk0
   '401':
-    description: Session not found.
+    description: "Unauthorized: session not found or token expired."
   '500':
     description: Server error.
-   
