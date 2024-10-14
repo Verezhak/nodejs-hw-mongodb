@@ -1,30 +1,81 @@
+# tags:
+#   - Auth
+# summary: User refresh
+# operationId: refreshUser
+# description: Authenticate a user and return a JWT token.
+# security:
+#   - bearerAuth: []
+# requestBody:
+#   required: true
+#   content:
+#     application/json:
+#       schema:
+#         type: object
+#         required:
+#           - email
+#           - password
+#         properties:
+#           email:
+#             type: string
+#             format: email
+#             example: verezhak@gmail.com
+#           password:
+#             type: string
+#             example: your_password
+# responses:
+#   '200':
+#     description: Successfully logged in
+#     content:
+#       application/json:
+#         schema:
+#           type: object
+#           required:
+#             - status
+#             - message
+#             - data
+#           properties:
+#             status:
+#               type: integer
+#               example: 200
+#             message:
+#               type: string
+#               example: Successfully refreshed a session!
+#             data:
+#               type: object
+#               properties:
+#                 token:
+#                   type: string
+#                   example: V2rYVl6VT+x3v84txE/f25d7gr4v5k1Ro7tSOMk0
+#   '401':
+#     description: Session not found.
+#   '500':
+#     description: Server error.
+   
 tags:
   - Auth
-summary: User refresh
-operationId: refreshUser
-description: Authenticate a user and return a JWT token.
+summary: Refresh JWT token
+operationId: refreshToken
+description: Refresh a user's session and return a new JWT token.
 security:
   - bearerAuth: []
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        required:
-          - email
-          - password
-        properties:
-          email:
-            type: string
-            format: email
-            example: verezhak@gmail.com
-          password:
-            type: string
-            example: your_password
+parameters:
+  - in: cookie
+    name: sessionId
+    required: true
+    schema:
+      type: string
+      example: 65ca67e7ae7f10c88b598384
+    description: The session ID stored in cookies
+  - in: cookie
+    name: refreshToken
+    required: true
+    schema:
+      type: string
+      example: your_refresh_token
+    description: The refresh token stored in cookies
 responses:
   '200':
-    description: Successfully logged in
+    description: Successfully refreshed a session
     content:
       application/json:
         schema:
@@ -39,15 +90,14 @@ responses:
               example: 200
             message:
               type: string
-              example: Successfully refreshed a session!
+              example: Successfully refreshed the session!
             data:
               type: object
               properties:
-                token:
+                accessToken:
                   type: string
                   example: V2rYVl6VT+x3v84txE/f25d7gr4v5k1Ro7tSOMk0
   '401':
-    description: Session not found.
+    description: session not found or token expired.
   '500':
     description: Server error.
-   
